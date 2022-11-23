@@ -4,7 +4,10 @@ from pyrogram.filters import command as hade_cmd, new_chat_members, user
 from Hades.afk import afk
 from Hades.watcher import afk_reply_watcher, afk_watcher, welcome
 from Hades.broadcast import broadcast
-from Hades.start import start
+from Hades.start import *
+import time
+
+st = None
 
 print("modules imported !")
 
@@ -43,8 +46,19 @@ async def broadcast_plug(_, m):
 print("\nBroadcaster loaded !")
 
 @hades.on_message(hade_cmd("start"))
-async def start_plug(_, m):
-    await start(_, m)
+async def start(_, m):
+    end = time.time()
+    l = await _.get_me()
+    un = l.username
+    name = m.from_user.first_name
+    markup = IKM(
+             [
+             [
+             IKB("➕ Add me to your group ➕", url=f"t.me/{un}?startgroup=True")
+             ]
+             ]
+             )
+    await m.reply_photo(LINK, caption=TEXT.format(name), reply_markup=markup)
 
 def Asynchorous(x):
     global st
