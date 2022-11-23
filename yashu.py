@@ -51,6 +51,12 @@ async def broadcast_plug(_, m):
 
 print("\nBroadcaster loaded !")
 
+TEXT = """Hey {}! I'm AFK Bot of Spoiled Community. 
+
+Try: replying afk to some media or stickers or gifs to make it more reasonable !
+
+"""
+
 @hades.on_message(hade_cmd("start"))
 async def start(_, m):
     end = time.time()
