@@ -15,8 +15,6 @@ def get_uptime(sec):
     hours, minutes = divmod(minutes, 60)
     return [hours, minutes, seconds]
 
-print("%d:%02d:%02d" % (hours, minutes, seconds))
-
 print("modules imported !")
 
 hades = Hades(":Hades:", api_id=API.API_ID, api_hash=API.API_HASH, bot_token=TOKENS.BOT_TOKEN)
