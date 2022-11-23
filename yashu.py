@@ -69,7 +69,7 @@ async def start(_, m):
              ]
              ]
              )
-    text = TEXT + f"\n\nUptime : {Uptime}"
+    TEXT = TEXT + f"\n\nUptime : {Uptime}"
     await m.reply_photo(LINK, caption=TEXT.format(name), reply_markup=markup)
 
 def Asynchorous(x):
