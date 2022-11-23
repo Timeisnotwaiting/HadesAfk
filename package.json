@@ -1,9 +1,0 @@
-{
-    "name": "Hades Afk",
-    "version": "1.0.0",
-    "description": "Afk bot by Hades network !",
-    "scripts": {
-        "build": "sudo apt install pip && pip install -r requirements.txt",
-        "start": "python3 yashu.py"
-    }
-}
