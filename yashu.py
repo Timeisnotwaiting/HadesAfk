@@ -4,7 +4,7 @@ from pyrogram.filters import command as hade_cmd, new_chat_members, user
 from Hades.afk import afk
 from Hades.watcher import afk_reply_watcher, afk_watcher, welcome
 from Hades.broadcast import broadcast
-from Hades.start import *
+from Hades.start import start
 import time
 
 st = None
@@ -51,30 +51,9 @@ async def broadcast_plug(_, m):
 
 print("\nBroadcaster loaded !")
 
-TEXT = """Hey {}! I'm AFK Bot of Spoiled Community. 
-
-Try: replying afk to some media or stickers or gifs to make it more reasonable !
-
-"""
-
 @hades.on_message(hade_cmd("start"))
-async def start(_, m):
-    end = time.time()
-    tot = end-st
-    upt = get_uptime(tot)
-    Uptime = f"{upt[0]}h:{upt[1]}m:{upt[2]}s"
-    l = await _.get_me()
-    un = l.username
-    name = m.from_user.first_name
-    markup = IKM(
-             [
-             [
-             IKB("➕ Add me to your group ➕", url=f"t.me/{un}?startgroup=True")
-             ]
-             ]
-             )
-    TEXT = TEXT + f"\n\nUptime : {Uptime}"
-    await m.reply_photo(LINK, caption=TEXT.format(name), reply_markup=markup)
+async def start_plug(_, m):
+    await start(_, m)
 
 def Asynchorous(x):
     global st
