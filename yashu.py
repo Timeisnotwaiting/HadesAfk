@@ -9,6 +9,14 @@ import time
 
 st = None
 
+def get_uptime(sec):
+    seconds = int(sec)
+    minutes, seconds = divmod(seconds, 60)
+    hours, minutes = divmod(minutes, 60)
+    return [hours, minutes, seconds]
+
+print("%d:%02d:%02d" % (hours, minutes, seconds))
+
 print("modules imported !")
 
 hades = Hades(":Hades:", api_id=API.API_ID, api_hash=API.API_HASH, bot_token=TOKENS.BOT_TOKEN)
@@ -48,6 +56,9 @@ print("\nBroadcaster loaded !")
 @hades.on_message(hade_cmd("start"))
 async def start(_, m):
     end = time.time()
+    tot = end-st
+    upt = get_uptime(tot)
+    Uptime = f"{upt[0]}h:{upt[1]}m:{upt[2]}s"
     l = await _.get_me()
     un = l.username
     name = m.from_user.first_name
@@ -58,6 +69,7 @@ async def start(_, m):
              ]
              ]
              )
+    text = TEXT + f"\n\nUptime : {Uptime}"
     await m.reply_photo(LINK, caption=TEXT.format(name), reply_markup=markup)
 
 def Asynchorous(x):
