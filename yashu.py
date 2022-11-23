@@ -47,7 +47,9 @@ async def start_plug(_, m):
     await start(_, m)
 
 def Asynchorous(x):
+    global st
     x.start()
+    st = time.time()
     y = x.get_me()
     z = y.username
     t = f"\n@{z} Started Successfully !"
