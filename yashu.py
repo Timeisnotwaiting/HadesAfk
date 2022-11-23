@@ -5,15 +5,6 @@ from Hades.afk import afk
 from Hades.watcher import afk_reply_watcher, afk_watcher, welcome
 from Hades.broadcast import broadcast
 from Hades.start import start
-import time
-
-st = None
-
-def get_uptime(sec):
-    seconds = int(sec)
-    minutes, seconds = divmod(seconds, 60)
-    hours, minutes = divmod(minutes, 60)
-    return [hours, minutes, seconds]
 
 print("modules imported !")
 
@@ -56,9 +47,7 @@ async def start_plug(_, m):
     await start(_, m)
 
 def Asynchorous(x):
-    global st
     x.start()
-    st = time.time()
     y = x.get_me()
     z = y.username
     t = f"\n@{z} Started Successfully !"
