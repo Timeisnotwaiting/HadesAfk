@@ -5,6 +5,7 @@ from Hades.afk import afk
 from Hades.watcher import afk_reply_watcher, afk_watcher, welcome
 from Hades.broadcast import broadcast
 from Hades.start import start
+from Hades.sysinfo import sysinfo
 
 print("modules imported !")
 
@@ -41,6 +42,10 @@ async def broadcast_plug(_, m):
     await broadcast(_, m)
 
 print("\nBroadcaster loaded !")
+
+@hades.on_message(hade_cmd("sysinfo"))
+async def sysinfoplug(_, m):
+    await sysinfo(_, m)
 
 @hades.on_message(hade_cmd("start"))
 async def start_plug(_, m):
