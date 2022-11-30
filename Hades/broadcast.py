@@ -22,7 +22,7 @@ async def broadcast(_, message):
                 ok = await _.forward_messages(i, y, x)
                 sent += 1
                 try:
-                    await _.pin_chat_message(i, ok.message_id)
+                    await _.pin_chat_message(i, ok.id)
                     pinned += 1
                 except:
                     continue 
@@ -30,7 +30,7 @@ async def broadcast(_, message):
                 ok = await _.send_message(i, query)
                 sent += 1
                 try:
-                    await _.pin_chat_message(i, ok.message_id)
+                    await _.pin_chat_message(i, ok.id)
                     pinned += 1
                 except:
                     continue
