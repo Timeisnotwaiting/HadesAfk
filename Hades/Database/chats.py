@@ -14,5 +14,5 @@ async def get_chats():
         return []
     CHATS = []
     for y in await x.to_list(length=1000000000):
-        CHATS.append(int(y))
+        CHATS.append(int(y["chat_id"]))
     return CHATS
