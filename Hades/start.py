@@ -7,7 +7,7 @@ We host our bots on vps, zero down time !
 
 from pyrogram.types import InlineKeyboardButton as IKB, InlineKeyboardMarkup as IKM
 #from .Database.users import add_user
-from .afk import get_readable_time
+from .helpers import get_readable_time
 from . import startTime
 import time
 
