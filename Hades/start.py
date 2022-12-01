@@ -25,5 +25,5 @@ async def start(_, m):
              ]
              ]
              )
-    await m.reply_photo(LINK, caption=(TEXT.format(name) + f"\n\nUptime : {up}"),  reply_markup=markup)
+    await m.reply_photo(LINK, caption=(TEXT.format(name) + f"\nUptime : {up}"),  reply_markup=markup)
     #await add_user(m.from_user.id)
