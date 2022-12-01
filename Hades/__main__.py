@@ -8,6 +8,9 @@ from Hades.start import start
 from Hades.sysinfo import sysinfo
 import asyncio
 
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+
 print("modules imported !")
 
 hades = Hades(":Hades:", api_id=API.API_ID, api_hash=API.API_HASH, bot_token=TOKENS.BOT_TOKEN)
@@ -61,6 +64,6 @@ async def Asynchorous():
     await idle()
 
 try:
-    asyncio.run(Asynchorous())
+    loop.run_until_complete(Asynchorous())
 except:
     pass
