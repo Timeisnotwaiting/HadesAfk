@@ -55,8 +55,8 @@ async def start_plug(_, m):
     await start(_, m)
 
 async def Asynchorous():
-    hades.start()
-    y = hades.get_me()
+    await hades.start()
+    y = await hades.get_me()
     z = y.username
     t = f"\n@{z} Started Successfully !"
     print(t)
