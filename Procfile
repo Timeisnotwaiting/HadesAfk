@@ -1,1 +1,1 @@
-worker: python3 -m Hades
+worker: python3 yashu.py
