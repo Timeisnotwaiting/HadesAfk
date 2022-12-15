@@ -30,11 +30,9 @@ async def settings(_, m):
     ]
     await m.reply_photo(IMG, caption=f"⚙️ AFK Bot settings\n\n🏘️ Group :- {m.chat.title}\n\n🆔 Group id :- <code>{m.chat.id}</code>\n\nChoose from below options !", reply_markup=IKM(mk))
     
-@Client.on_callback_query(filters.regex("cc_answer"))
 async def cc_ans(_, q):
     await q.answer("What's this ?\n\nIf this mode is enabled, Command messages will be deleted automatically.\n\nFor this, bot must be admin with delete messages right !", show_alert=True)
     
-@Client.on_callback_query(filters.regex("cc_toggle"))
 async def cc_tog(_, q):
     z = await _.get_chat_member(q.message.chat.id, q.from_user.id)
     if not z.status.name in ["OWNER", "ADMINISTRATOR"]:
@@ -57,7 +55,6 @@ async def cc_tog(_, q):
     except Exception as e:
         await q.message.reply(e)
 
-@Client.on_callback_query(filters.regex("close"))
 async def close(_, q):
     global id
     await q.answer()
