@@ -42,7 +42,7 @@ async def cc_tog(_, q):
     x = True if y else False
     mk = [
         [
-        IKB("COMMANDS CLEAN", callback_data="cc_answer"),
+        IKB("Commands Clean", callback_data="cc_answer"),
         IKB("{}".format("Enabled ✅" if x else "Disabled ❌"), callback_data="cc_toggle")
         ],
         [
