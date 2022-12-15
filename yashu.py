@@ -1,11 +1,12 @@
 from config import API, TOKENS, DEV
 from pyrogram import Client as Hades, idle
-from pyrogram.filters import command as hade_cmd, new_chat_members, user
+from pyrogram.filters import command as hade_cmd, new_chat_members, user, regex
 from Hades.afk import afk
 from Hades.watcher import afk_reply_watcher, afk_watcher, welcome
 from Hades.broadcast import broadcast
 from Hades.start import start
 from Hades.sysinfo import sysinfo
+from Hades.settings import *
 
 print("modules imported !")
 
@@ -46,6 +47,24 @@ print("\nBroadcaster loaded !")
 @hades.on_message(hade_cmd("sysinfo"))
 async def sysinfoplug(_, m):
     await sysinfo(_, m)
+
+@hades.on_message(hade_cmd("settings"))
+async def settings_plug(_, m):
+    await settings(_, m)
+
+@hades.on_callback_query(regex("cc_answer"))
+async def cc1(_, q):
+    await cc_ans(_, q)
+
+@hades.on_callback_query(regex("cc_toggle"))
+async def cc2(_, q):
+    await cc_tog(_, q)
+
+@hades.on_callback_query(regex("close"))
+async def cc3(_, q):
+    await close(_, q)
+
+print("\nSettings loaded !")
 
 @hades.on_message(hade_cmd("start"))
 async def start_plug(_, m):
