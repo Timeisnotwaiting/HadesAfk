@@ -11,7 +11,7 @@ async def afk_watcher(_, m):
     if not m.from_user:
         return
     if m.text:
-        if m.text.split()[0].lower() in ["/afk", f"/afk@{uname}", "brb"]:
+        if m.text.split()[0].lower() in ["/afk", f"/afk@{uname}".lower(), "brb"]:
             return
     user_id = m.from_user.id
     first_name = m.from_user.first_name
@@ -123,7 +123,7 @@ async def afk_reply_watcher(_, m):
                 txt += f"\n\n**Reason** : `{reason}`" if reason else ""
                 await m.reply(txt)
 
-PIC = "https://te.legra.ph/file/ba980e91c447df3bbedfe.jpg"
+PIC = "https://telegra.ph/file/4fca1f57e20ab794e6767.jpg"
 
 async def welcome(_, m):
     chat_id = m.chat.id
