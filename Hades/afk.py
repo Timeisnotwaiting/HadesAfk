@@ -1,9 +1,17 @@
 import time
 from Hades.Database.afk import add_afk
+from Hades.Database.cm import check_cc
 
 async def afk(_, m):
     if not m.from_user:
         return
+    y = await check_cc(m.chat.id)
+    x = True if y else False
+    if x:
+        try:
+            await m.delete()
+        except:
+            pass
     user_id = m.from_user.id
     first_name = m.from_user.first_name
     await m.reply(f"**{first_name}** is AFK !")
