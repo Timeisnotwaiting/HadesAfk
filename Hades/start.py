@@ -10,10 +10,18 @@ from pyrogram.types import InlineKeyboardButton as IKB, InlineKeyboardMarkup as 
 from .helpers import get_readable_time
 from . import startTime
 import time
+from .Database.cm import check_cc
 
 LINK = "https://telegra.ph/file/0a95deafeb88af0c05596.jpg"
 
 async def start(_, m):
+    y = await check_cc(m.chat.id)
+    x = True if y else False
+    if x:
+        try:
+            await m.delete()
+        except:
+            pass
     l = await _.get_me()
     un = l.username
     name = m.from_user.first_name
