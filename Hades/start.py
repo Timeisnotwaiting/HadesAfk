@@ -11,7 +11,7 @@ from .helpers import get_readable_time
 from . import startTime
 import time
 
-LINK = "https://te.legra.ph/file/df6a005f0cbed009147df.jpg"
+LINK = "https://telegra.ph/file/0a95deafeb88af0c05596.jpg"
 
 async def start(_, m):
     l = await _.get_me()
