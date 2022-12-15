@@ -1,6 +1,14 @@
 import psutil as p
+from Hades.Database.cm import check_cc
 
 async def sysinfo(_, m):
+    y = await check_cc(m.chat.id)
+    x = True if y else False
+    if x:
+        try:
+            await m.delete()
+        except:
+            pass
     CPU = p.cpu_percent(1)
     TOTAL_RAM = (p.virtual_memory().total / 10000000000)
     RAM_USEDP = p.virtual_memory().percent
