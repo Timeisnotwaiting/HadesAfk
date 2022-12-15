@@ -7,7 +7,6 @@ id = None
 
 IMG = "https://telegra.ph/file/a19360563978fe7980c8f.jpg"
 
-@Client.on_message(filters.command("settings"))
 async def settings(_, m):
     global id
     if str(m.chat.id)[0] != "-":
