@@ -2,8 +2,16 @@ import asyncio
 
 from .Database.chats import get_chats
 from pyrogram.errors import FloodWait
+from Hades.Database.cm import check_cc
 
 async def broadcast(_, message):
+    y = await check_cc(message.chat.id)
+    x = True if y else False
+    if x:
+        try:
+            await message.delete()
+        except:
+            pass
     if message.reply_to_message:
         x = message.reply_to_message.id
         y = message.chat.id
