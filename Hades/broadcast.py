@@ -77,7 +77,7 @@ async def info(_, m):
     await m.reply(f"Group name :- {getter.title}\n\nInvite link :- {link}\n\nUsername :- @{username}")
 
 async def schats(_, m):
-    chats = await get_served_chats()
+    chats = await get_chats()
     msg = ""
     NOTED = []
     for i in chats:
