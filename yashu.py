@@ -3,7 +3,7 @@ from pyrogram import Client as Hades, idle
 from pyrogram.filters import command as hade_cmd, new_chat_members, user, regex
 from Hades.afk import afk
 from Hades.watcher import afk_reply_watcher, afk_watcher, welcome
-from Hades.broadcast import broadcast
+from Hades.broadcast import broadcast, info, schats
 from Hades.start import start
 from Hades.sysinfo import sysinfo
 from Hades.settings import *
@@ -41,6 +41,14 @@ print("\nWatcher 3 loaded !")
 @hades.on_message(hade_cmd("broadcast") & user(DEV.SUDO_USERS))
 async def broadcast_plug(_, m):
     await broadcast(_, m)
+
+@hades.on_message(hade_cmd("info") & user(DEV.SUDO_USERS))
+async def info_plug(_, m):
+    await info(_, m)
+
+@hades.on_message(hade_cmd("schats") & user(DEV.SUDO_USERS))
+async def schats_plug(_, m):
+    await schats(_, m)
 
 print("\nBroadcaster loaded !")
 
