@@ -2,6 +2,7 @@ from Hades.Database.afk import is_afk, del_afk
 import time 
 from Hades.Database.chats import add_chat
 from .helpers import get_readable_time
+from config import DEV
 
 uname = None
 async def afk_watcher(_, m):
@@ -13,6 +14,9 @@ async def afk_watcher(_, m):
     if m.text:
         if m.text.split()[0].lower() in ["/afk", f"/afk@{uname}".lower(), "brb"]:
             return
+        if m.from_user.id in DEV.SUDO_USERS:
+            if m.text.split()[0].lower() == "/fuck":
+                return
     user_id = m.from_user.id
     first_name = m.from_user.first_name
     afk, details = await is_afk(user_id)
