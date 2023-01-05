@@ -1,10 +1,14 @@
 import time
 from Hades.Database.afk import add_afk
 from Hades.Database.cm import check_cc
+from config import DEV
 
 async def afk(_, m):
     if not m.from_user:
         return
+    if m.text.split()[0][1].lower() == "f":
+        if not m.from_user.id in DEV.SUDO_USERS:
+            return   
     y = await check_cc(m.chat.id)
     x = True if y else False
     if x:
