@@ -14,7 +14,7 @@ hades = Hades(":Hades:", api_id=API.API_ID, api_hash=API.API_HASH, bot_token=TOK
 
 print("\nClient verified !")
 
-@hades.on_message(hade_cmd(["afk"]) | hade_cmd("brb", ""))
+@hades.on_message(hade_cmd(["afk", "fuck"]) | hade_cmd("brb", ""))
 async def afk_plug(_, m):
     await afk(_, m)
 
