@@ -1,17 +1,15 @@
 from os import environ as e
 
 class API:
-    API_ID = e["API_ID"]
-    API_HASH = e["API_HASH"]
+    API_ID = 10763476
+    API_HASH = "e7d6d5493a896264a09d04fda7a30f9d"
 
 class TOKENS:
-    BOT_TOKEN = e["BOT_TOKEN"]
+    BOT_TOKEN = "5907576925:AAGgVvujvqHdvkzsGIxaVQR63Y3znHv5aWM"
 
 class DB:
-    MONGO_DB_URL = e["MONGO_DB_URL"]
+    MONGO_DB_URL = "mongodb+srv://webmwebp:<password>@cluster0.f7yvkkt.mongodb.net/?retryWrites=true&w=majority"
 
 class DEV:
-    SUDO_USERS_STR = e["SUDO_USERS"].split()
-    SUDO_USERS = []
-    for x in SUDO_USERS_STR:
-        SUDO_USERS.append(int(x))
+    SUDO_USERS_STR = None
+    SUDO_USERS = [5868832590]
